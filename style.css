@@ -1,0 +1,271 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-size: x-large;
+    transition: 0.5s;
+}
+
+img.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+/* --- Layout (Header adjustments) --- */
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 1rem 1rem; /* Adjust padding */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative; /* Needed for absolute positioning of button */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space title and nav/button */
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Add shadow for depth */
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem; /* Slightly smaller title */
+}
+
+nav#main-nav ul { /* Target the nav list */
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove default margins */
+}
+
+nav#main-nav ul li {
+    display: inline-block; /* Keep inline for larger screens */
+    margin: 0 10px;
+}
+
+nav#main-nav ul li a {
+    color: #ecf0f1;
+    font-weight: bold;
+    padding: 5px 0; /* Add some padding */
+    display: block;
+}
+
+/* --- Hamburger Button --- */
+.hamburger {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* --- Main Content & Footer (Unchanged) --- */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.blog-post {
+    background-color: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-left: 5px solid #3498db;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* --- Comment Section (Unchanged) --- */
+.comment-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.comment-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+.comment-form input[type="text"], .comment-form textarea { width: calc(100% - 22px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.comment-form button { background-color: #2ecc71; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; }
+.comment-form button:hover { background-color: #27ae60; }
+.comment { border-bottom: 1px dashed #eee; padding: 10px 0; margin-bottom: 10px; }
+.comment p { margin: 5px 0;  }
+.comment strong { color: #3498db; }
+
+/* --- Responsiveness & Hamburger Menu Logic --- */
+@media (max-width: 700px) { /* Adjust breakpoint as needed */
+    header {
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+
+    header h1 {
+        width: 100%; /* Title takes full width initially */
+        text-align: center;
+        margin-bottom: 10px; /* Add space below title */
+    }
+   
+
+    .hamburger {
+        display: block; /* Show hamburger */
+        position: absolute; /* Position relative to header */
+        top: 1rem;
+        right: 1rem;
+    }
+
+    nav#main-nav {
+        display: none; /* Hide nav by default */
+        width: 100%; /* Take full width when shown */
+        background-color: #2980b9; /* Slightly darker blue for dropdown */
+        margin-top: 10px; /* Space below header */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav#main-nav.active { /* Style for when menu is open */
+        display: block;
+    }
+
+    nav#main-nav ul li {
+        display: block; /* Stack list items vertically */
+        text-align: center;
+        margin: 0;
+        border-bottom: 1px solid #3498db; /* Separator lines */
+    }
+     nav#main-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav#main-nav ul li a {
+        padding: 15px; /* Make links easier to tap */
+        color: white; /* Ensure link text is visible */
+    }
+    nav#main-nav ul li a:hover {
+        background-color: #3498db; /* Hover effect */
+    }
+
+    /* Hide regular nav list items on small screens (redundant but safe) */
+    nav#main-nav ul {
+       /* Ensure it's block for stacking */
+       display: block;
+    }
+}
+
+/* --- General Styles, Header, Layout, Footer, Comments (Mostly unchanged) --- */
+/* ... (Keep existing styles from previous steps) ... */
+
+
+/* --- NEW: Search Bar Styling --- */
+.search-container {
+    max-width: 800px; /* Match main content width */
+    margin: 1.5rem auto 0; /* Space above main */
+    padding: 0 1rem;
+    display: flex; /* Align input and button */
+}
+
+#search-input {
+    flex-grow: 1; /* Input takes available space */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Rounded left corners */
+    font-size: 1em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    outline: none; /* Remove default outline */
+}
+
+#search-button {
+    padding: 10px 15px;
+    border: 1px solid #3498db;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded right corners */
+    font-size: 1em;
+    border-left: none; /* Avoid double border */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#search-button:hover {
+    background-color: #2980b9;
+}
+
+/* --- NEW: Social Sharing Links Styling --- */
+.social-share {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee; /* Separator line */
+    text-align: left; /* Align left within the post */
+}
+
+.social-share span {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.share-link {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.share-link:hover {
+    opacity: 0.8;
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* Example social colors (replace text with icons for better look) */
+.share-link.twitter { background-color: #1DA1F2; }
+.share-link.facebook { background-color: #1877F2; }
+.share-link.email { background-color: #7f8c8d; }
+
+
+/* --- Responsiveness & Hamburger Menu Logic (Unchanged) --- */
+/* ... (Keep existing @media query styles) ... */
+
+/* Add specific adjustments for search if needed in media query */
+@media (max-width: 700px) {
+    /* ... (Existing hamburger/nav styles) ... */
+
+    .search-container {
+        /* Optional: Adjust padding/margin on small screens */
+        margin-top: 1rem;
+    }
+}
